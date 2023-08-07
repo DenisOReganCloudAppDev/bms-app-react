@@ -32,7 +32,7 @@ function BuildingManager(){
 
     async function handleNewTenant(event){
     	
-    	const data =  {first_name,last_name,apartment_no,phone,email,building_id}
+    	const data =  {first_name,last_name,apartment_no,phone,email,building_id};
     
     	console.log( data)
 
@@ -77,6 +77,7 @@ function BuildingManager(){
 
 	return(
 		<div className="container">
+			<br></br>
 
 		
 			<div className="col-3 submit-form">
@@ -126,9 +127,11 @@ function BuildingManager(){
 				</form>
 				<button type="submit" class="btn btn-primary" onClick={handleNewTenant} >Submit</button>
 			</div>
+			<br></br>
+
 
 			<div className="row">TENANTS
-				  <table className="table">
+				  <table className=" table table-hover">
 				  <thead>
 				    <tr>
 				      <th scope="col">ID</th>

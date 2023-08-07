@@ -8,6 +8,7 @@ import BuildingManager from './views/BuildingManager'
 import Tenant from './views/Tenant'
 import Engineer from './views/Engineer'
 import ShowTenant from './views/ShowTenant'
+import ShowRequest from './views/ShowRequest'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                <Route path="/Tenant" element={<Tenant />}></Route>
                <Route path="/Engineer" element={<Engineer />}></Route>
                <Route path="/ShowTenant" element={<ShowTenant />}></Route>
+               <Route path="/ShowRequest" element={<ShowRequest />}></Route>
          
             </Routes>
         </Router> 
