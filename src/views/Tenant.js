@@ -12,8 +12,6 @@ function Tenant(){
 	async function handleNewRequest(event){
 		
     	
-    	//const data =  {tenant_id,requestinfo,requestDate,completed,comment};
-    	//var tenant_id = "21";
     	const data = {tenant_id, requestinfo ,requestDate,completed}
     
     	console.log(data)

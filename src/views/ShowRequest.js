@@ -13,7 +13,7 @@ function ShowRequest(){
 
 	const[comment,setComment] = useState("")
 
-	//const[id,setID] = useState("");
+	//
 	const[tenant_id, setTenant_Id] = useState("");
 	const[requestinfo, setRequestInfo] = useState("");
 	const[requestDate, setRequestDate] = useState("");
@@ -26,7 +26,7 @@ function ShowRequest(){
 
     }, []);
     
-
+	//reques data of the selected maintenance request
     async function getRequest(){
 
     	const response = await axios.get("http://localhost:3000/maintenance_requests/"+id,
@@ -46,7 +46,7 @@ function ShowRequest(){
     	
     console.log(requestData)
 
-    //updateRequest Function is an Update function
+    //updateRequest is a Update function
     async function updateRequest(){
     	console.log(comment);
     	const data = {id,tenant_id, requestinfo ,requestDate,completed, comment}
@@ -62,15 +62,7 @@ function ShowRequest(){
     	}
 
     }
-    function handleCheckChange(event){
-    	if(event.target.checked){
-    		setCompleted(true);
-    	}
-    	else{
-    		setCompleted(false);
-    	}
-    	
-    }
+    
 
 	return(
 		<div className="container">
@@ -85,7 +77,7 @@ function ShowRequest(){
 			    <h6 class="card-subtitle mb-2 text-body-secondary">Completed: {completed.toString()}</h6>
 			    
 			    <div class="form-check">
-  					<input class="form-check-input" type="checkbox" onChange={handleCheckChange}/>
+  					<input class="form-check-input" type="checkbox" />
   					<label class="form-check-label" for="flexCheckDefault">
     				Complete Job
   					</label>

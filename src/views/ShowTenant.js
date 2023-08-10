@@ -8,7 +8,7 @@ function ShowTenant(){
 	const[tenantId, setTenantId] = useState("12")
 	const[tenantData,setTenantData] = useState([])
 	const location = useLocation();
-	const id = location.state;
+	const id = location.state;//get id of tenant
 
 	useEffect(() => {
        
@@ -16,7 +16,7 @@ function ShowTenant(){
 
     }, []);
     
-
+	//get data of 1 tenant
     async function getData(){
 
     	const response = await axios.get("http://localhost:3000/tenants/"+id,

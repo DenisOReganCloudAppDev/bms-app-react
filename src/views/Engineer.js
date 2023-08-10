@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom'
 
 function Engineer(){
+	//create state variables 
 	const[requests, setRequests] = useState([])
 	
 
@@ -10,10 +11,19 @@ function Engineer(){
        getData() 
     }, []);
 
+	//function to request maintenance requests from backend
     async function getData(){
-    	const response = await axios.get("http://localhost:3000/maintenance_requests",
+
+    	try{
+    		const response = await axios.get("http://localhost:3000/maintenance_requests",
     		{headers: {Accept: "application/json"}});
-    	setRequests(response.data)
+    		setRequests(response.data)
+    		getData();
+    	}
+    	catch(error){
+    		console.error("error deleting tenant", error)
+    	}
+    	
     
     }
     console.log(requests)
