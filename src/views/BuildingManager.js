@@ -8,9 +8,12 @@ import Tenants from '../components/Tenants'
 
 
 function BuildingManager(){
+
+	//initialise state variables
 	const[tenants, setTenants] = useState([])
 	const[tenantId, setTenantId] = useState("")
 
+	//state variables for creating new tenant
 	const[first_name ,setFirst_Name] = useState("")
 	const[last_name, setLast_Name] = useState("")
 	const[apartment_no, setApartment_no] = useState("")
@@ -23,6 +26,8 @@ function BuildingManager(){
        getData() 
     }, []);
 
+
+	//get tenants from rails backend application
     async function getData(){
     	const response = await axios.get("http://localhost:3000/tenants",
     		{headers: {Accept: "application/json"}});
@@ -30,6 +35,7 @@ function BuildingManager(){
     }
     console.log(tenants)
 
+    //create a new tenant
     async function handleNewTenant(event){
     	
     	const data =  {first_name,last_name,apartment_no,phone,email,building_id};
@@ -38,6 +44,7 @@ function BuildingManager(){
 
     	try{await axios.post("http://localhost:3000/tenants",data,
     		{headers: {Accept: "application/json" ,'Content-Type':"application/json" }} );
+    		//re-render tenants table for user
     		getData();
     	}
     	catch(error){
@@ -47,14 +54,15 @@ function BuildingManager(){
     	
     }
 
+    //function to show info on 1 tenant
     function handleShowTenant(event){
     	console.log("show tenant")
     	console.log(event.target.value)
     	setTenantId(event.target.value)
 
     }
-    	function handleEditTenant(event){}
-
+    	
+    	//function to delete tenant
     	async function handleDeleteTenant(event){
     	const tenantId = event.target.value
     	console.log(tenantId)
@@ -90,6 +98,7 @@ function BuildingManager(){
 				    		class="form-control" 
 				    		 id="firstname" 
 				    		 onChange={((e)=>setFirst_Name(e.target.value))}
+				    		 required
 				  
 				  	/>
 
@@ -98,30 +107,35 @@ function BuildingManager(){
 				    <label for="lastname" class="form-label">Last Name</label>
 				    <input type="text" class="form-control" id="lastname" 
 				     onChange={((e)=>setLast_Name(e.target.value))}
+				     required
 				    />
 				  </div>
 				  <div class="mb-3">
 				    <label for="apartno" class="form-label">Apartment number</label>
 				    <input type="text" class="form-control" id="apartno"
 				     onChange= {((e)=>setApartment_no(e.target.value))}
+				     required
 				     />
 				  </div>
 				  <div class="mb-3">
 				    <label for="phone" class="form-label">Phone number</label>
 				    <input type="text" class="form-control" id="phone"
 				     onChange= {((e)=>setPhone(e.target.value))}
+				     required
 				     />
 				  </div>
 				  <div class="mb-3">
 				    <label for="email" class="form-label">Email</label>
 				    <input type="text" class="form-control" id="email" 
 				     onChange= {((e)=>setEmail(e.target.value))}
+				     required
 				    />
 				  </div>
 				  <div class="mb-3">
 				    <label for="building" class="form-label">Building</label>
 				    <input type="text" class="form-control" id="building"
 				     onChange= {((e)=>setBuilding_id(e.target.value))}
+				     required
 				     />
 				  </div>
 				</form>

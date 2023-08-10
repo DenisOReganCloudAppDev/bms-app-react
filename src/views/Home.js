@@ -9,7 +9,7 @@ function Home() {
         <h3>student: Denis O'Regan</h3>
 
         <h3>Application</h3>
-        <p>The application is a buildig management system </p>
+        <p>This application is a building management system </p>
        
             
         </div>
