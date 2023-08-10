@@ -155,7 +155,7 @@ function BuildingManager(){
 				      <td>{tenant.email}</td>
 				      <td>{tenant.building_id}</td>
 				      <button type="button" class="btn btn-primary"  value={tenant.id}><Link to="/showTenant" state={tenant.id} > show tenant</Link></button>
-				      <button type="button" class="btn btn-primary" onClick={handleEditTenant}>Edit tenant</button>
+				     
 				      <button type="button" class="btn btn-primary" onClick={handleDeleteTenant} value={tenant.id}>Delete tenant</button>
 				    </tr>
 
